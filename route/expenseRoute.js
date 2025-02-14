@@ -5,8 +5,8 @@ const  auth = require('../middleware/auth')
 
 expenseRoute.post(`/add`,auth, addTransaction)
 expenseRoute.get(`/all`, auth, readAllTransactions)
-expenseRoute.get(`/single/:id`, readSingleTransaction)
-expenseRoute.patch(`/update/:id`, updateTransaction)
-expenseRoute.delete(`/delete/:id`, deleteTransaction)
+expenseRoute.get(`/single/:id`, auth, readSingleTransaction)
+expenseRoute.patch(`/update/:id`, auth, updateTransaction)
+expenseRoute.delete(`/delete/:id`, auth, deleteTransaction)
 
 module.exports = expenseRoute
